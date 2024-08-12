@@ -1,0 +1,27 @@
+{
+  "name": "tinify-tool",
+  "version": "0.1.0",
+  "description": "cli for tinyPng",
+  "scripts": {
+    "build": "vite build",
+    "postinstall": "tsx ./scripts/tinify-inject-cacertpem.ts",
+    "postbuild": "tsx scripts/postBuild.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "tptool": "./bin/tinify-tool.cjs.js"
+  },
+  "author": "ethan",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.2.0",
+    "commander": "^12.1.0",
+    "glob": "^11.0.0",
+    "tinify": "^1.7.1",
+    "vite": "^5.4.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4"
+  }
+}
