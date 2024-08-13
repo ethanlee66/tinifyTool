@@ -1,1 +1,1 @@
-export * from './tinyPngTool'
+export * from './tinifyTool'

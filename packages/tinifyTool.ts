@@ -1,12 +1,10 @@
 import tinify from 'tinify'
-import {getCliConfig} from '../utils/index'
-export class TinyPngTool {
+import {glob} from 'glob'
+import {TinifyPattern} from '@/types/constants'
+
+export class TinifyTool {
   constructor(key: string) {
     tinify.key = key;
-  }
-
-  get cliConfig() {
-    return getCliConfig()
   }
 
   public async compressImage(inputPath: string, outputPath?: string) {
@@ -17,5 +15,15 @@ export class TinyPngTool {
     } catch (error) {
       console.error('Error compressing image:', error);
     }
+  }
+
+  public async compressDirectory(path: string) {
+    const files = glob.sync(TinifyPattern, {
+        cwd: path,
+        absolute: true,
+    });
+    files.forEach(async file => {
+        await this.compressImage(file)
+    })
   }
 }
