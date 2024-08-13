@@ -2,6 +2,11 @@
   "name": "tinify-tool",
   "version": "0.1.0",
   "description": "cli for tinyPng",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanlee66/tinifyTool.git"
+  },
+  "homepage": "https://github.com/ethanlee66/tinifyTool/blob/main/README.md",
   "scripts": {
     "build": "vite build",
     "postinstall": "tsx ./scripts/tinify-inject-cacertpem.ts",
